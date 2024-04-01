@@ -4,7 +4,7 @@ Release:        1%{?dist}
 Summary:        Simple C/C++ based 15 puzzle solver
 
 License:        MIT
-URL:            https://github.com/akifejaz/15_puzzle
+URL:            https://github.com/githubtestprojects/15_puzzle
 Source0:        %{name}-%{version}.tar.gz
 
 
@@ -31,5 +31,5 @@ install -Dm755 run %{buildroot}%{_bindir}/%{name}
 %{_bindir}/%{name}
 
 %changelog
-* Fri Mar 30 2024 Akif Ejaz <akifejaz40@gmail.com> - 1.0-1
+* Fri Mar 30 2024 Rostant Alimeta <rostant.alimeta@gmail.com> - 1.0-1
 - Initial packaging of the puzzle solver
