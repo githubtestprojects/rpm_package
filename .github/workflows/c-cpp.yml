@@ -1,0 +1,48 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build RPM
+        run: |
+          echo "Current directory: $(pwd): $GITHUB_WORKSPACE"
+          git clone https://github.com/akifejaz/15_puzzle test_dir
+          echo "Curr Dir "
+          ls
+          echo "Previous Dir "
+          ls ../
+
+          mkdir -p rpm_pkg/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
+          cp test_dir/15_puzzle.spec rpm_pkg/rpmbuild/SPECS/15_puzzle.spec
+          cp -rf test_dir rpm_pkg/rpmbuild/SOURCES/15_puzzle-1.0
+          tar -czvf rpm_pkg/rpmbuild/SOURCES/15_puzzle-1.0.tar.gz -C rpm_pkg/rpmbuild/SOURCES/ 15_puzzle-1.0
+          rm -rf rpm_pkg/rpmbuild/SOURCES/15_puzzle-1.0
+          ls rpm_pkg/rpmbuild
+
+          cd rpm_pkg/rpmbuild
+          echo "Curr Dir $(pwd)"
+          rpm --eval %{_bindir}
+          rpm --eval %{buildroot}
+          rpmbuild -ba --define "_topdir $(pwd)" SPECS/15_puzzle.spec
+          
+      - name: Print
+        run: |
+           ls rpm_pkg/rpmbuild/*
+           
+      - name: Upload RPM
+        uses: actions/upload-artifact@v2
+        with:
+          name: 15_puzzle
+          path: rpm_pkg/rpmbuild/RPMS
