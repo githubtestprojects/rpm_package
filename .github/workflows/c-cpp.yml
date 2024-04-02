@@ -18,7 +18,7 @@ jobs:
       - name: Build RPM
         run: |
           echo "Current directory: $(pwd): $GITHUB_WORKSPACE"
-          git clone https://github.com/akifejaz/15_puzzle test_dir
+          git clone https://github.com/githubtestprojects/15_puzzle test_dir
           echo "Curr Dir "
           ls
           echo "Previous Dir "
