@@ -4,7 +4,7 @@ Release:        1%{?dist}
 Summary:        Simple C/C++ based 15 puzzle solver
 
 License:        MIT
-URL:            https://github.com/githubtestprojects/15_puzzle
+URL:            https://github.com/githubtestprojects/rpm_package
 Source0:        %{name}-%{version}.tar.gz
 
 
