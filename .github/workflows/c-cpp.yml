@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: alro1001/demo-app:fedora38_1.3
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
