@@ -31,5 +31,5 @@ install -Dm755 run %{buildroot}%{_bindir}/%{name}
 %{_bindir}/%{name}
 
 %changelog
-* Fri Mar 30 2024 Rostant Alimeta <rostant.alimeta@gmail.com> - 1.0-1
+* Fri Mar 30 2024 Rostant A. <ralimeta@scitec.com> - 1.0-1
 - Initial packaging of the puzzle solver
