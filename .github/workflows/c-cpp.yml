@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: alro1001/dockerhub-rpmbuild-1.0
+    runs-on: quay.io/centos/centos:latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
